@@ -33,7 +33,7 @@ module ForemanNetbox
              parent: :infrastructure_menu,
              after: :realms
 	sub_menu :top_menu, :template, :caption=> N_('Netbox IPAM'), :after=> :hosts_menu, :icon => 'fa fa-tachometer' do
-   	     menu :top_menu, :level1, :caption=>N_('IP Adresses'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:index}
+   	     menu :top_menu, :level1, :caption=>N_('IP Adresses'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
    	     menu :top_menu, :level2, :caption=>N_('Prefixes'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
    	     menu :top_menu, :level3, :caption=>N_('Prefix/VLAN Roles'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     sub_menu :top_menu, :inner_level, :caption=> N_('Inner level') do
