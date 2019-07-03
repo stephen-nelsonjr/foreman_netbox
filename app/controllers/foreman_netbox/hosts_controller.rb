@@ -7,5 +7,9 @@ module ForemanNetbox
     def new_action
       # automatically renders view/foreman_netbox/hosts/new_action
     end
+    
+    def index
+      # automatically renders view/foreman_netbox/hosts/new_action
+    end
   end
 end
