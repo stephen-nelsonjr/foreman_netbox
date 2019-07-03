@@ -1,6 +1,6 @@
 # ForemanNetbox
 
-*Introdction here*
+This plugin will automate the process of assigning ip addresses to Foreman hosts using the smart_proxy_netpam plugin and a netbox-provided SDK, "netbox-client-ruby".
 
 ## Installation
 
@@ -9,7 +9,7 @@ for how to install Foreman plugins
 
 ## Usage
 
-*Usage here*
+When a new host is created on Foreman, this plugin will request a new ip address from the smart_proxy_netpam plugin, which then makes additional communications with netbox to obtain and assign an IP address to the host and send it back to Foreman.
 
 ## TODO
 
