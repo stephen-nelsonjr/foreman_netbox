@@ -32,7 +32,16 @@ module ForemanNetbox
              caption: 'ForemanNetbox',
              parent: :infrastructure_menu,
              after: :realms
-
+	sub_menu :top_menu, :example, :caption=> N_('Example'), :after=> :hosts_menu do
+   	     menu :top_menu, :level1, :caption=>N_('the first level'), :url_hash => {:controller=> :example, :action=>:index}
+   	     menu :top_menu, :level2, :url_hash => {:controller=> :example, :action=>:index}
+   	     menu :top_menu, :level3, :url_hash => {:controller=> :example, :action=>:index}
+   	     sub_menu :top_menu, :inner_level, :caption=> N_('Inner level') do
+     	         menu :top_menu, :level41, :url_hash => {:controller=> :example, :action=>:index}
+    		 menu :top_menu, :level42, :url_hash => {:controller=> :example, :action=>:index}
+   	     end
+             menu :top_menu, :level5, :url_hash => {:controller=> :example, :action=>:index}
+        end
 	
 
         # add dashboard widget
