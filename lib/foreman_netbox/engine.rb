@@ -46,6 +46,14 @@ module ForemanNetbox
 
         # add dashboard widget
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
+	      
+	# add discovery smart proxy to subnet
+	smart_proxy_for Subnet, :discovery,
+  	     :feature => 'Discovery',
+  	     :label => N_('Discovery Proxy'),
+  	     :description => N_('Discovery Proxy to use within this subnet for managing connection to discovered hosts'),
+  	     :api_description => N_('ID of Discovery Proxy'),
+  	     :if => ->(subnet) { subnet.supports_ipam_mode?(:dhcp) }
       end
     end
 
