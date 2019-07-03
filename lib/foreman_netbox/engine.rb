@@ -33,7 +33,7 @@ module ForemanNetbox
              parent: :infrastructure_menu,
              after: :realms
 	sub_menu :top_menu, :template, :caption=> N_('Netbox IPAM'), :after=> :hosts_menu, :icon => 'fa fa-tachometer' do
-   	     menu :top_menu, :level1, :caption=>N_('IP Adresses'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
+   	     menu :top_menu, :level1, :caption=>N_('IP Adresses'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:index}
    	     menu :top_menu, :level2, :caption=>N_('Prefixes'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
    	     menu :top_menu, :level3, :caption=>N_('Prefix/VLAN Roles'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     sub_menu :top_menu, :inner_level, :caption=> N_('Inner level') do
@@ -48,12 +48,11 @@ module ForemanNetbox
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
 	      
 	# add discovery smart proxy to subnet
-	smart_proxy_for Subnet, :discovery,
-  	     :feature => 'Discovery',
-  	     :label => N_('Discovery Proxy'),
-  	     :description => N_('Discovery Proxy to use within this subnet for managing connection to discovered hosts'),
-  	     :api_description => N_('ID of Discovery Proxy'),
-  	     :if => ->(subnet) { subnet.supports_ipam_mode?(:dhcp) }
+	smart_proxy_for Hosts, :netbox,
+  	     :feature => 'Netbox IPAM',
+  	     :label => N_('Netbox Proxy'),
+  	     :description => N_('Netbox Proxy to use for IPAM for discovered hosts'),
+  	     :api_description => N_('ID of Discovery Proxy')
       end
     end
 
