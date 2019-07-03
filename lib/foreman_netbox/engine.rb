@@ -48,7 +48,7 @@ module ForemanNetbox
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
 	      
 	# add discovery smart proxy to subnet
-	smart_proxy_for Hosts, :netbox,
+	smart_proxy_for Host, :netbox,
   	     :feature => 'Netbox IPAM',
   	     :label => N_('Netbox Proxy'),
   	     :description => N_('Netbox Proxy to use for IPAM for discovered hosts'),
