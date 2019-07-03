@@ -10,7 +10,7 @@ module ForemanNetbox
       @host.managed = true if (params[:host] && params[:host][:managed].nil?)
       forward_url_options
       if @host.save
-        process_success :success_redirect => host_path(@host)
+        process_success :success_redirect => index
       else
         load_vars_for_ajax
         offer_to_overwrite_conflicts
