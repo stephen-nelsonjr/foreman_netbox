@@ -6,13 +6,15 @@ module ForemanNetbox
 
     def new_action
       # automatically renders view/foreman_netbox/hosts/new_action
-      @client = Client.new(params[:client])
-      if @client.save
-        redirect_to @client
+      @host = Host.new(host_params)
+      @host.managed = true if (params[:host] && params[:host][:managed].nil?)
+      forward_url_options
+      if @host.save
+        process_success :success_redirect => host_path(@host)
       else
-        # This line overrides the default rendering behavior, which
-        # would have been to render the "create" view.
-        render "new"
+        load_vars_for_ajax
+        offer_to_overwrite_conflicts
+        process_error
       end
     end
     
