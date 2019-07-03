@@ -6,10 +6,6 @@ module ForemanNetbox
 
     def new_action
       # automatically renders view/foreman_netbox/hosts/new_action
-    end
-    
-    def index
-      # automatically renders view/foreman_netbox/hosts/new_action
       @client = Client.new(params[:client])
       if @client.save
         redirect_to @client
@@ -18,6 +14,10 @@ module ForemanNetbox
         # would have been to render the "create" view.
         render "new"
       end
+    end
+    
+    def index
+      # automatically renders view/foreman_netbox/hosts/new_action
     end
   end
 end
