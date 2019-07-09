@@ -9,8 +9,6 @@
 
 <%= javascript_tag("$(document).on('ContentLoad', tfm.templateInputs.initTypeChanges)"); %>
 
-<%= form_for @template, :url => url, :html => { :multipart => true, :onsubmit => 'tfm.editor.submitCode();' } do |f| %>
-  <%= base_errors_for @template %>
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class="active"><a id="primary_tab" href="#primary" data-toggle="tab"><%= _("Template") %></a></li>
     <li><a href="#template_inputs" data-toggle="tab"><%= _("Inputs") %></a></li>
@@ -86,5 +84,5 @@
     <div class="tab-pane" id="history">
       <%= render :partial => 'history', :locals => { history: @history } %>
     </div>
-<% end %>
+
 
