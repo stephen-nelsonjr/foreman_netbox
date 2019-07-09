@@ -9,12 +9,6 @@
 
 <%= javascript_tag("$(document).on('ContentLoad', tfm.templateInputs.initTypeChanges)"); %>
 
-<% url = if @template.persisted?
-           public_send("#{@type_name_singular}_path", :id => @template)
-         else
-           public_send("#{@type_name_singular}_path", :id => @resource_class.new)
-         end
-%>
 <%= form_for @template, :url => url, :html => { :multipart => true, :onsubmit => 'tfm.editor.submitCode();' } do |f| %>
   <%= base_errors_for @template %>
   <ul class="nav nav-tabs" data-tabs="tabs">
