@@ -18,6 +18,10 @@ module ForemanNetbox
 #       end
     end
     
+    def action_2
+      
+    end
+    
     def index
       # automatically renders view/foreman_netbox/hosts/new_action
     end
