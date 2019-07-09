@@ -1,88 +1,10 @@
-<!-- Welcome to <b>ForemanNetbox</b>
+Welcome to <b>ForemanNetbox</b>
 
 <form accept-charset="UTF-8" action="/clients" method="post">
   <input type="text" name="client[name]" value="Acme" />
+  <div>
   <input type="text" name="client[phone]" value="12345" />
+  </div>
   <input type="text" name="client[address][postcode]" value="12345" />
   <input type="text" name="client[address][city]" value="Carrot City" />
-</form> -->
-
-<%= javascript_tag("$(document).on('ContentLoad', tfm.templateInputs.initTypeChanges)"); %>
-
-  <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active"><a id="primary_tab" href="#primary" data-toggle="tab"><%= _("Template") %></a></li>
-    <li><a href="#template_inputs" data-toggle="tab"><%= _("Inputs") %></a></li>
-    <%= render "#{@type_name_plural}/custom_tab_headers" unless type == 'ptable'%>
-    <li><a id='history_tab' href="#history" data-toggle="tab"><%= _("History") %></a></li>
-    <% if show_location_tab? %>
-      <li><a href="#locations" data-toggle="tab"><%= _("Locations") %></a></li>
-    <% end %>
-    <% if show_organization_tab? %>
-      <li><a href="#organizations" data-toggle="tab"><%= _("Organizations") %></a></li>
-    <% end %>
-    <li><a id='help_tab' href="#help" data-toggle="tab"><%= _("Help") %></a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="primary">
-      <%= render_if_exists "#{@type_name_plural}/_alerts" %>
-
-      <%= text_f f, :name, :disabled => @template.locked? %>
-
-      <% if show_default? %>
-        <%= checkbox_f f, :default, :label=>_('Default'), :label_help => default_template_description %>
-      <% end -%>
-
-      <%= render "custom_tabs", :f => f if type == 'ptable' %>
-
-      <% if pxe_with_building_hosts?(@template) -%>
-        <% warning_text = (_("The template is associated to at least one host in build mode. To apply the change, disable and enable build mode on hosts to update the live templates or choose to %s their configuration from 'Select Action' menu") % link_to(_('recreate'), building_hosts_path(@template))).html_safe %>
-        <%= alert(:class => 'alert-warning', :header => 'Warning', :text => warning_text) %>
-      <% end -%>
-
-      <div class='form-group'>
-        <div class="col-md-12">
-            <label class="control-label"  for="template"><%= _("Template *") %></label>
-        </div>
-
-        <div class="col-md-12">
-          <div class="editor-container">
-            <%= render :partial => 'editor/toolbar', :locals => { :show_preview => true, :show_import => !@template.locked?} %>
-
-            <%= alert :class => 'alert-danger hide', :id => 'preview_error', :close => false %>
-            <%= textarea_f f, :template, :class => "editor_source", :label =>:none, :disabled => @template.locked?, :size => "max",
-                            :'data-file-name' => @template.name, :'data-render-path' => url_for(template_hash_for_member(@template, 'preview')) %>
-          </div>
-        </div>
-      </div>
-
-      <%= textarea_f f, :audit_comment, :size => "col-md-10", :rows => 3, :label => _("Audit Comment"),
-                     :help_block => _("The Audit Comment field is saved with the template auditing to document the template changes") %>
-    </div>
-
-    <div class="tab-pane" id="template_inputs">
-      <%= alert(:class => 'alert-info', :header => _('Template inputs'),
-                :text => ('<p>' + _("Inputs can be used to parametrize templates during rendering \
-  based on template type, it allows to fetch the value from host facts, \
-  host parameterization or ask user interactively. To use value loaded \
-  via input, use <code>input('name')</code> global macro. The template needs to be \
-  saved before input macro can load the value. If the value is not available during
-  template preview, its value is expanded to <code>$TYPE_INPUT[name]</code> string." + '</p>')
-                ).html_safe) %>
-
-      <div class="children_fields">
-        <%= new_child_fields_template(f, :template_inputs, { :partial => "template_inputs/form" }) %>
-        <%= f.fields_for :template_inputs do |ff| %>
-          <div class="template_input_form fields">
-            <%= render 'template_inputs/form', :f => ff %>
-          </div>
-        <% end %>
-        <%= add_child_link '+ ' + _("Add Input"), :template_inputs, { :title => _('add a input for this template')} unless @template.locked? %>
-      </div>
-    </div>
-
-    <div class="tab-pane" id="history">
-      <%= render :partial => 'history', :locals => { history: @history } %>
-    </div>
-
-
+</form>
