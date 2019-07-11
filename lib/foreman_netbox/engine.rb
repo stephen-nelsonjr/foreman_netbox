@@ -53,6 +53,8 @@ module ForemanNetbox
   	     :label => N_('Netbox Proxy'),
   	     :description => N_('Netbox Proxy to use for IPAM for discovered hosts'),
   	     :api_description => N_('ID of Discovery Proxy')
+	      
+	 divider :top_menu, :parent => :monitor_menu, :after => :reports
       end
     end
 
