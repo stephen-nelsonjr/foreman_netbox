@@ -5,7 +5,8 @@ module ForemanNetbox
     # layout 'foreman_netbox/layouts/new_layout'
 
     def new_action
-      @response = Netbox.proxy.get_sections
+#       @response = Netbox.proxy.get_sections
+      puts "Hello"
     end
     
 #     def subnets
