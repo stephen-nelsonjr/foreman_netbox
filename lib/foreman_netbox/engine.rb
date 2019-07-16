@@ -41,7 +41,7 @@ module ForemanNetbox
 #     		 menu :top_menu, :level42, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     end
 #              menu :top_menu, :level5, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
-        end
+#         end
 	
         # add dashboard widget
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
