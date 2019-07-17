@@ -21,8 +21,8 @@ module ForemanNetbox
         # Add permissions
         security_block :foreman_netbox do
           permission :view_foreman_netbox, :'foreman_netbox/hosts' => [:new_action]
-          permission :view_foreman_netbox, :'foreman_netbox/dashboard' => [:new_action]
-          permission :view_foreman_netbox_subnets, :'foreman_netbox/dashboard' => [:new_action]
+#           permission :view_foreman_netbox, :'foreman_netbox/dashboard' => [:new_action]
+#           permission :view_foreman_netbox_subnets, :'foreman_netbox/dashboard' => [:new_action]
         end
 #
         # Add a new role called 'Discovery' if it doesn't exist
@@ -45,14 +45,14 @@ module ForemanNetbox
 #              menu :top_menu, :level5, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #         end
 	      
-	 # Add menu entry to Infrastructure
-         menu :top_menu, :template,
-              url_hash: { 
-              controller: :'foreman_netbox/dashboard', action: :new_action 
-              },
-              caption: 'Netbox IPAM Dashboard',
-              parent: :infrastructure_menu
-        end
+# 	 # Add menu entry to Infrastructure
+#          menu :top_menu, :template,
+#               url_hash: { 
+#               controller: :'foreman_netbox/dashboard', action: :new_action 
+#               },
+#               caption: 'Netbox IPAM Dashboard',
+#               parent: :infrastructure_menu
+#         end
 	
         # add dashboard widget
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
