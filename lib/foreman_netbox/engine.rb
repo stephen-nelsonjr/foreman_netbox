@@ -24,7 +24,7 @@ module ForemanNetbox
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
-        role 'NetboxIpam', [:view_foreman_netbox]
+        role 'NetboxIpam', [:view_foreman_netbox, :view_foreman_ipam_subnets]
 
         # add menu entry
         menu :top_menu, :template,
@@ -42,6 +42,15 @@ module ForemanNetbox
 #    	     end
 #              menu :top_menu, :level5, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #         end
+	      
+	 # Add menu entry to Infrastructure
+         menu :top_menu, :template,
+              url_hash: { 
+              controller: :'foreman_netbox/dashboard', action: :new_action 
+              },
+              caption: 'Netbox IPAM Dashboard',
+              parent: :infrastructure_menu
+        end
 	
         # add dashboard widget
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
