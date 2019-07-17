@@ -17,16 +17,14 @@ module ForemanNetbox
     initializer 'foreman_netbox.register_plugin', :before => :finisher_hook do |_app|
       Foreman::Plugin.register :foreman_netbox do
         requires_foreman '>= 1.16'
-#
+
         # Add permissions
         security_block :foreman_netbox do
           permission :view_foreman_netbox, :'foreman_netbox/hosts' => [:new_action]
-#           permission :view_foreman_netbox, :'foreman_netbox/dashboard' => [:new_action]
-#           permission :view_foreman_netbox_subnets, :'foreman_netbox/dashboard' => [:new_action]
         end
-#
+
         # Add a new role called 'Discovery' if it doesn't exist
-        role 'NetboxIpam', [:view_foreman_netbox, :view_foreman_netbox_subnets]
+        role 'NetboxIpam', [:view_foreman_netbox]
 
         # add menu entry
         menu :top_menu, :template,
