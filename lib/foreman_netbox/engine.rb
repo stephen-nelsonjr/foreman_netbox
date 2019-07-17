@@ -24,7 +24,7 @@ module ForemanNetbox
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
-        role 'ForemanNetbox', [:view_foreman_netbox]
+        role 'NetboxIpam', [:view_foreman_netbox]
 
         # add menu entry
         menu :top_menu, :template,
