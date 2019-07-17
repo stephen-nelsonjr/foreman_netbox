@@ -22,7 +22,7 @@ module ForemanNetbox
         security_block :foreman_netbox do
           permission :view_foreman_netbox, :'foreman_netbox/hosts' => [:new_action]
           permission :view_foreman_netbox, :'foreman_netbox/dashboard' => [:new_action]
-          permission :view_foreman_ipam_subnets, :'foreman_ipam/dashboard' => [:new_action]
+          permission :view_foreman_netbox_subnets, :'foreman_netbox/dashboard' => [:new_action]
         end
 #
         # Add a new role called 'Discovery' if it doesn't exist
