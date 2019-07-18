@@ -1,1 +1,1 @@
-require_relative '../../lib/foreman_netbox/netboxipam'
+require_relative '../../lib/foreman_netbox/netbox'
