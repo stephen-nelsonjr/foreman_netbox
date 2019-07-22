@@ -32,6 +32,14 @@ module ForemanNetbox
              caption: 'ForemanNetbox',
 	     :parent => :infrastructure_menu,
              after: :realms
+	      
+	divider :top_menu, :caption => N_('Netbox'), :parent => :infrastructure_menu, :last => true
+
+        menu :top_menu, :template,
+             :url_hash => { :controller => :'foreman_netbox/hosts, :action => :new_action },
+             :caption => N_('Netbox IPAM'),
+             :parent => :infrastructure_menu,
+             :last => :true
 # 	sub_menu :top_menu, :template, :caption=> N_('Netbox IPAM'), :after=> :hosts_menu, :icon => 'fa fa-tachometer' do
 #    	     menu :top_menu, :level1, :caption=>N_('IP Adresses'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     menu :top_menu, :level2, :caption=>N_('Prefixes'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
