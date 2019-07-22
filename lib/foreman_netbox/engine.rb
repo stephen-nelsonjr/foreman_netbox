@@ -28,7 +28,7 @@ module ForemanNetbox
 
         # add menu entry
         menu :top_menu, :template,
-             url_hash: { controller: :'foreman_netbox/hosts', action: :new_action },
+             url_hash: { controller: :'foreman_netbox/hosts', action: :new_action' },
              caption: 'ForemanNetbox',
 	     :parent => :infrastructure_menu,
              after: :realms
