@@ -1,8 +1,8 @@
 require 'socket'
 
 module ForemanNetbox
-  module ipv4.rb
-    prepend Subnet::Ipv4 < Subnet
+  class ipv4
+    prepend Subnet::Ipv4 
       def self.supported_ipam_modes
         [:netbox_ipam]
       end
