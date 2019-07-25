@@ -45,21 +45,22 @@ module ForemanNetbox
 #    	     menu :top_menu, :level1, :caption=>N_('IP Adresses'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     menu :top_menu, :level2, :caption=>N_('Prefixes'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     menu :top_menu, :level3, :caption=>N_('Prefix/VLAN Roles'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
-#              sub_menu :top_menu, :inner_level, :caption=> N_('Test') do
+             
+# 	     sub_menu :top_menu, :inner_level, :caption=> N_('Test') do
 #      	         menu :top_menu, :level41, :caption=>N_('Test'), :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #     		 menu :top_menu, :level42, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #    	     end
+		
 #              menu :top_menu, :level5, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #         end
 	      
-# 	 # Add menu entry to Infrastructure
-#          menu :top_menu, :template,
-#               url_hash: { 
-#               controller: :'foreman_netbox/dashboard', action: :new_action 
-#               },
-#               caption: 'Netbox IPAM Dashboard',
-#               parent: :infrastructure_menu
-#         end
+	 # Add menu entry to Infrastructure
+         menu :top_menu, :template,
+              url_hash: { 
+              controller: :'foreman_netbox/dashboard', action: :new_action 
+              },
+              caption: 'Netbox IPAM Dashboard',
+              parent: :infrastructure_menu
 	
         # add dashboard widget
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
