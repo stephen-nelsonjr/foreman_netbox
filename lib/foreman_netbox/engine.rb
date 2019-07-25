@@ -54,13 +54,13 @@ module ForemanNetbox
 #              menu :top_menu, :level5, :url_hash => {:controller=> :'foreman_netbox/hosts', :action=>:new_action}
 #         end
 	      
-	 # Add menu entry to Infrastructure
-         menu :top_menu, :template,
-              url_hash: { 
-              controller: :'foreman_netbox/dashboard', action: :new_action 
-              },
-              caption: 'Netbox IPAM Dashboard',
-              parent: :infrastructure_menu
+# 	 # Add menu entry to Infrastructure
+#          menu :top_menu, :template,
+#               url_hash: { 
+#               controller: :'foreman_netbox/dashboard', action: :new_action 
+#               },
+#               caption: 'Netbox IPAM Dashboard',
+#               parent: :infrastructure_menu
 	
         # add dashboard widget
         widget 'foreman_netbox_widget', name: N_('Foreman plugin template widget'), sizex: 4, sizey: 1
