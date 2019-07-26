@@ -1,7 +1,7 @@
 require 'socket'
 
 module ForemanNetbox
-   class ipv4_cont
+   class ipv4
       prepend Subnet::Ipv4 
       
        def super.supported_ipam_modes
