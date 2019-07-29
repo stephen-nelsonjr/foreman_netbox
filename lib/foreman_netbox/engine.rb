@@ -81,6 +81,7 @@ module ForemanNetbox
       begin
         Host::Managed.send(:include, ForemanNetbox::HostExtensions)
         HostsHelper.send(:include, ForemanNetbox::HostsHelperExtensions)
+	Subnet::Ipv4.singleton_class.send(:prepend, ForemanNetbox::SubnetClassExtensions)
       rescue => e
         Rails.logger.warn "ForemanNetbox: skipping engine hook (#{e})"
       end
