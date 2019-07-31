@@ -33,7 +33,7 @@ module ForemanNetbox
 	     :parent => :infrastructure_menu,
              after: :realms
 	      
-	divider :top_menu, :caption => N_('Netbox'), :parent => :infrastructure_menu, :after => :domains
+	divider :top_menu, :caption => N_('Netbox'), :parent => :infrastructure_menu, :after => :realms
 
         menu :top_menu, :template,
              :url_hash => { :controller => :'foreman_netbox/hosts', :action => :new_action },
